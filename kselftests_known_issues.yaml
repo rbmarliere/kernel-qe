@@ -1,0 +1,24 @@
+---
+bpf:
+  test_progs:
+  - product: opensuse:Tumbleweed
+    subtests:
+      bpf_tcp_ca/tcp_ca_kfunc:
+      - patterns:
+        - 'bpf_tcp_ca/tcp_ca_kfunc:FAIL'
+        - 'test_tcp_ca_kfunc:FAIL:tcp_ca_kfunc__open_and_load'
+        - "libbpf: failed to load BPF skeleton 'tcp_ca_kfunc'"
+        - "libbpf: failed to load object 'tcp_ca_kfunc'"
+cgroup:
+  test_cpu:
+  - product: sle:15-SP7
+    message: Broken test
+    subtests:
+      test_cpucg_max_nested:
+      - patterns:
+        - 'test_cpucg_max_nested'
+        - 'test_cpucg_max_nested2'
+  test_cpucg_max_nested:
+  - patterns:
+    - 'test_cpucg_max_nested'
+    - 'test_cpucg_max_nested2'
