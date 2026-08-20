@@ -193,6 +193,10 @@ net:
     - product: opensuse:Tumbleweed
       message: Environment setup problem. Issue not reproducible under strict selftests environment.
 
+    icmp_sh:
+    - product: opensuse:Tumbleweed
+      message: Flaky test - race between ping and tcpdump startup
+
     '*':
     - test: ^so_incoming_cpu
       product: opensuse:Tumbleweed
